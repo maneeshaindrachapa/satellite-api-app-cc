@@ -40,9 +40,9 @@ public class SatelliteControllerImpl implements SatelliteController {
     public ResponseEntity<ModelApiResponse> decommissionConstellation(@ApiParam(value = "ID of the satellite",required=true)
                                                                    @PathVariable("satelliteID") Long satelliteID) {
         if(satelliteService.decommissionConstellation(satelliteID) > 0) {
-            return new ResponseEntity<>(new ModelApiResponse(0000, "","Successfully removed the constellation (decommission)"), HttpStatus.OK);
+            return new ResponseEntity<>(new ModelApiResponse(200, "","Successfully removed the constellation (decommission)"), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(new ModelApiResponse(0000, "","Satellite not found"), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(new ModelApiResponse(404, "","Satellite not found"), HttpStatus.NOT_FOUND);
         }
     }
 
