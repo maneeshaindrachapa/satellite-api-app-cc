@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: satellite-api-app
+  name: satellite-api-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: satellite-api-app
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: satellite-api-app
+    spec:
+      containers:
+        - image: {{ .Values.env.containers.image }}
+          name: satellite-api-app
+          env:
+            - name: spring.datasource.url
+              value: {{ .Values.env.database.url }}
+            - name: spring.datasource.username
+              value: {{ .Values.env.database.username }}
+            - name: spring.datasource.password
+              value: {{ .Values.env.database.password }}

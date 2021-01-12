@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: satellite-api-app
+  name: satellite-api-app
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: satellite-api-app
+  type: LoadBalancer
+status:
+  loadBalancer: {}

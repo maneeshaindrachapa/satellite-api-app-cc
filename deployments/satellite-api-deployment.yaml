@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: satellite-api-app
+  name: satellite-api-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: satellite-api-app
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: satellite-api-app
+    spec:
+      containers:
+        - image: maneeshaindrachapa/satellite-api-app:v0.0.2
+          name: satellite-api-app
+          env:
+            - name: spring.datasource.url
+              value: "jdbc:mysql://mysql/spacex_starlink?createDatabaseIfNotExist=true&useSSL=false&user=root"
+            - name: spring.datasource.username
+              value: "root"
+            - name: spring.datasource.password
+              value: "root"
