@@ -55,8 +55,7 @@ public interface SatelliteController {
     @ApiOperation(value = "Get all Satellite Details", nickname = "getAllSatellites", notes = "Returns all Satellites", response = Satellite.class, tags={ "satellite", })
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "successful operation", response = Satellite.class),
-            @ApiResponse(code = 400, message = "Invalid satellite id", response = ModelApiResponse.class),
-            @ApiResponse(code = 404, message = "satellite not found", response = ModelApiResponse.class) })
+            @ApiResponse(code = 404, message = "satellites not found", response = ModelApiResponse.class) })
     @RequestMapping(value = "/satellite/",
             produces = { "application/json" },
             method = RequestMethod.GET)
