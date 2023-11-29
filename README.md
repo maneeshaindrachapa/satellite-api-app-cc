@@ -1,14 +1,14 @@
-###Build Jar
+## #Build Jar
 `mvn clean install -DskipTests`
 
 
-###Run Dockerfile
+### Run Dockerfile
 
 `sudo docker build -t <dockerhub_username>/satellite-api-app:v0.0.1 .`
 <br><br>`docker push <dockerhub_username>/satellite-api-app:v0.0.1`
 
 
-###Kubernetics Deployment
+### Kubernetics Deployment
 `kubectl apply -f deployments/my-sql-pv.yaml`<br><br>
 `kubectl apply -f deployments/my-sql-pvc.yaml`<br><br>
 `kubectl apply -f deployments/my-sql-deployment.yaml`<br><br>
